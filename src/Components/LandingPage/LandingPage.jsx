@@ -9,8 +9,11 @@ const LandingPage = () => {
 	const fetchData = async () => {	
     axios.get(`https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_KEY}`)
     .then((response) => {
-      console.log(response.data);
-      setData(response.data);
+      var fetchedData = response.data;
+      console.log(fetchedData + " => " + typeof(fetchedData));
+      setData(fetchedData);
+      localStorage.setItem("LandingPage_data" , fetchedData);
+      localStorage.setItem("LandingPage_time" , Date.now());
     })
     .catch((err)=>{
       console.log(err);
@@ -19,10 +22,15 @@ const LandingPage = () => {
 	};
 
   useEffect(() => {
-    setTimeout(() => {
-        fetchData();
-    },);
-});
+    if(localStorage.getItem("LandingPage_data")){
+      var data = localStorage.getItem("LandingPage_data");
+      setData(data);
+    }
+    else{
+      fetchData();
+    }
+    localStorage.clear();
+},[]);
 	return (
 		<div>
       {data && <ImageModel data = {data} />}
