@@ -5,7 +5,7 @@ import "./Navbar.css";
 const Navbar = () => {
   return (
     <>
-      <nav className='container' > 
+      <nav className='navcontainer' > 
         <div className='logo' >
           Nasa Api
         </div>
@@ -16,6 +16,9 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/marsclub">MarsClub</Link>
+            </li>
+            <li>
+              <Link to="/search">Search</Link>
             </li>
           </ul>
         </div>
