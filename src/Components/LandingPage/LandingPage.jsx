@@ -1,41 +1,51 @@
 import React from 'react';
 import "./LandingPage.css";
-import axios from 'axios';
 import { useState, useEffect } from 'react';
 import ImageModel from './ImageModel';
+import FirebaseHandler from '../../FirebaseConfig/Firebasehandler';
+import fetchDataFromAPI from '../../APICalls/LandingPageAPI'
 
 const LandingPage = () => {
-	const [data, setData] = useState(null);
-	const fetchData = async () => {	
-    axios.get(`https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_KEY}`)
-    .then((response) => {
-      var fetchedData = response.data;
-      console.log(fetchedData + " => " + typeof(fetchedData));
-      setData(fetchedData);
-      localStorage.setItem("LandingPage_data" , fetchedData);
-      localStorage.setItem("LandingPage_time" , Date.now());
-    })
-    .catch((err)=>{
-      console.log(err);
-    })
+  const [data, setData] = useState([]);
 
-	};
+  // to get data to fill the feed
+  const  getDataFromFirebase= async ()=> {
+    let objArray = []
+    objArray = await FirebaseHandler("read","");
+    setData(objArray);
+  }
+
 
   useEffect(() => {
-    if(localStorage.getItem("LandingPage_data")){
-      var data = localStorage.getItem("LandingPage_data");
-      setData(data);
+    // localStorage.clear();
+    const dateObj = new Date();
+    const today = dateObj.getDate();
+    var lastDBUpdateTime = localStorage.getItem("lastDBUpdateTime");
+
+    // eslint-disable-next-line
+    if (today != lastDBUpdateTime)
+    {
+      fetchDataFromAPI();
+      localStorage.setItem("lastDBUpdateTime", today);
     }
-    else{
-      fetchData();
-    }
-    localStorage.clear();
-},[]);
+    getDataFromFirebase();
+  }, [])
+  
+
+
+
 	return (
-		<div>
-      {data && <ImageModel data = {data} />}
+		<div className='landingPageContainer'>
+      <div className='mainContent'  > 
+        <div >
+          {
+          data.map((ele , index) => {
+            return (<ImageModel key = {index} ele = {ele} />)
+          })}
+        </div>
+      </div>
 		</div>
 	);
 }    
 
-export default LandingPage
+export default LandingPage;

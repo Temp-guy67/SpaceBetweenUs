@@ -7,7 +7,7 @@ const Navbar = () => {
     <>
       <nav className='navcontainer' > 
         <div className='logo' >
-          Nasa Api
+          ET's Space
         </div>
         <div >
           <ul className='list'>

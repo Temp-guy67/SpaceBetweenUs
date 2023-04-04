@@ -1,12 +1,17 @@
 import React from 'react';
 import "./LandingPage.css";
 
-const ImageModel = ({data}) => {
+const ImageModel = ({ele}) => {
   return (
     <div className="imageContainer"   >
-        <h1 className="title" >{data.title}</h1>
-        <img className="image"  src={data.hdurl} alt="" />
-        <p className="para"   >{data.explanation}</p>
+      <div className='imageSection'>
+        <img src={ele.hdurl} alt="Image Not Genarated" />
+      </div>
+      <div className='textSection'>
+        <h1>{ele.title}</h1>
+        <p>{ele.explanation}</p>
+
+      </div>
     </div>
   )
 }
