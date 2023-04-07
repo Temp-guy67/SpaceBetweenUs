@@ -13,11 +13,13 @@ const LandingPage = () => {
     let objArray = []
     objArray = await FirebaseHandler("read","");
     setData(objArray);
+    if(objArray) {
+      localStorage.setItem("feedData", JSON.stringify(objArray))
+    }
   }
 
 
   useEffect(() => {
-    // localStorage.clear();
     const dateObj = new Date();
     const today = dateObj.getDate();
     var lastDBUpdateTime = localStorage.getItem("lastDBUpdateTime");
@@ -27,8 +29,16 @@ const LandingPage = () => {
     {
       fetchDataFromAPI();
       localStorage.setItem("lastDBUpdateTime", today);
+      getDataFromFirebase();
     }
-    getDataFromFirebase();
+    else {
+      const cacheData = localStorage.getItem("feedData");
+      const data =  JSON.parse(cacheData);
+      const rev = data.reverse();
+      setData(rev);
+    }
+    // getDataFromFirebase();
+    // localStorage.clear();  
   }, [])
   
 

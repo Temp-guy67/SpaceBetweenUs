@@ -1,27 +1,51 @@
 .landingPageContainer{
     display: flex;
     flex-direction: column;
-    width: 90%;
-    height: 200px;
-    justify-self: center;
+    width: 100%;
+    height: auto;
+    /* justify-self: center; */
+    justify-content: center;
     /* border: 2px solid yellow; */
 }
 
 
 .imageContainer{
     margin: 10px;
-    align-self: center;
     display: flex;
     flex-direction: row;
     border: 2px solid black;
     padding: 10px;
-    align-items: center;
+    width: 90%;
+    /* height: 60%; */
+
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
 }
 
-.imageContainer img {
-    width: 80%;
-
+.imageSection {
+    width: 60%;
 }
+
+.textSection {
+    width: 40%;
+}
+
+.innerTextSection{
+    margin: 20px;
+}
+
+.imageSection img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+  }
 
 
 .buttonDesign{

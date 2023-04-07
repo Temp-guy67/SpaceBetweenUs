@@ -8,8 +8,11 @@ const ImageModel = ({ele}) => {
         <img src={ele.hdurl} alt="Image Not Genarated" />
       </div>
       <div className='textSection'>
-        <h1>{ele.title}</h1>
-        <p>{ele.explanation}</p>
+        <div className='innerTextSection'  >
+          <h1>{ele.title}</h1>
+          <p>{ele.explanation}</p>
+
+        </div>
 
       </div>
     </div>
