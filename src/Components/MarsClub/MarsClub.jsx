@@ -1,38 +1,40 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import "./MarsClub.css";
-import axios from 'axios';
 import { useState,useEffect } from 'react';
 import PhotoGallery from '../PhotoGallery/PhotoGallery';
+import MarsClubAPI from '../../APICalls/MarsClubAPI';
 
 const MarsClub = () => {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
+    const prev = "<";
+    const next = ">";
 
 	const fetchData = async () => {	
-        axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${process.env.REACT_APP_API_KEY}&page=${page}`)
-        .then((response) => {
-            var fethcedData = response.data.photos;
-            setData(fethcedData);
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
-
+        const fetchedData = await MarsClubAPI(page);
+        setData(fetchedData);
+        localStorage.setItem(("MarsPage" + page) , JSON.stringify(fetchedData));
 	};
+
     useEffect(() => {
-        fetchData();
+        if(localStorage.getItem("MarsPage" + page)){
+            const cacheData = localStorage.getItem("MarsPage" + page);
+            const data =  JSON.parse(cacheData);
+            setData(data);
+        }
+        else{
+            fetchData();
+        }
     },[page]);
     
     const handleNextPage = () => {
-        setPage(page+1);
-        // console.log("WORKING");
-        alert("WORKING");
+        setPage(page => page + 1);
     }
 
     const handlePrevPage = () => {
         if(page > 1){
-            setPage(page+1);
+            setPage(page => page - 1 );
         }
         else{
             alert("KUTTAR BACCHA!!!!! VALO HYE JA");
@@ -51,10 +53,13 @@ const MarsClub = () => {
 
                 <div className='button'>
                     <div >
-                        <button onClick={handlePrevPage}  > PREV</button>
+                        <button onClick={handlePrevPage}  > {prev} </button>
+                    </div>
+                    <div >
+                        <button > {page} </button>
                     </div>
                     <div>
-                        <button onClick={handleNextPage}  >NEXT</button>
+                        <button onClick={handleNextPage}  >{next}</button>
                     </div>
                 </div>
             </div>

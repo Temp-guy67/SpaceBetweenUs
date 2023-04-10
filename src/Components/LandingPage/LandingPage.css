@@ -3,21 +3,22 @@
     flex-direction: column;
     width: 100%;
     height: auto;
-    /* justify-self: center; */
+    margin-top: 5%;
     justify-content: center;
-    /* border: 2px solid yellow; */
 }
 
 
 .imageContainer{
-    margin: 10px;
+    margin: 50px;
     display: flex;
     flex-direction: row;
-    border: 2px solid black;
-    padding: 10px;
+    height : 60vh;
+    border-radius: 0px;
+    background: #ffffff;
+    box-shadow:  35px 35px 70px #b5b5b5,
+                 -35px -35px 70px #ffffff;
+    border: 10px solid white;
     width: 90%;
-    /* height: 60%; */
-
     flex-wrap: wrap;
     justify-content: space-between;
     position: relative;

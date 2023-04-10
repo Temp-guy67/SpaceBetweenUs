@@ -18,7 +18,10 @@ const Navbar = () => {
               <Link to="/marsclub">MarsClub</Link>
             </li>
             <li>
-              <Link to="/search">Search</Link>
+            <a href="/search">Search</a>
+            </li>
+            <li>
+              <a href="https://whosarghya.netlify.app">AboutMe</a>
             </li>
           </ul>
         </div>

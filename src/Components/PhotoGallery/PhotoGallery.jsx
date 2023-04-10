@@ -2,24 +2,29 @@ import React from 'react'
 import "./PhotoGallery.css";
 
 const PhotoGallery = ({data}) => {
-    // console.log(" photo gallery data is : " + data.photos + " type==========> " +  typeof(data.photos));
     
     return(
         <>
-            {/* { data.forEach(function(obj1) { console.log(obj1.id); })} */}
             <div className='container'>
                 {
                     data.map((ele) => (
-                        <div key={ele.id} className='gallery' >
-                            <img src={ele.img_src} className='singlePhoto' alt="" />
+                        <div key={ele.id} className='card' >
+                            <div className='cardContainer'>
+
+                                <img src={ele.img_src} alt="" />
+                                <div className="card-content">
+                                    <h2 className="card-title">Rover : {ele.rover.name}({ele.camera.name})</h2>
+                                    <div>
+                                        <p className="card-date">Earth Date : {ele.earth_date}</p>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    ) )
+                    ))
                 }
             </div>
         </>
-                // <div key= {ele.id} >
-                //     <img className="photo" src={ele.img_src} alt="" />
-                // </div>
     )
 }
 

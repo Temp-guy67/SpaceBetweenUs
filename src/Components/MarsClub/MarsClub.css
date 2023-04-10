@@ -1,27 +1,46 @@
 .containerMarsClub{
     display: flex;
     flex-direction: column;
-    padding: 20px;
     height: auto;
     width: 100%;
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin-top: 5%;
+    justify-content: center;
 }
 
 .photogallery{
     margin-bottom: 30px;
     height: auto;
-    width: auto;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
 }
 
 .button{
-    margin-top: 30px;
+    margin: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10vh;
+
 }
 
-.button div{
+/* .button div{
     display: flex;
     flex-direction: row;
     width: 30px;
     padding: 10px;
-    border: 2px black solid;
+} */
+
+.button button {
+    display: flex;
+    flex-direction: row;
+    width: 40px;
+    height: 38px;
+    padding: 5px;
+    border-radius: 100%;
+    border: 1px solid black;
+    margin: 20px;
 }
+
+

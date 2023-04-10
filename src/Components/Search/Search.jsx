@@ -1,7 +1,7 @@
 import React from 'react';
-import axios from 'axios';
 import { useState,useEffect } from 'react';
 import "./Search.css";
+import SearchBoxAPI from '../../APICalls/SearchBoxAPI';
 
 const Search = () => {
   const [data, setData] = useState([]);
@@ -9,16 +9,8 @@ const Search = () => {
   const [desc, setDesc] = useState("");
 
   const fetchData = async () => {	
-        axios.get(`https://images-api.nasa.gov/search?description=${desc}&media_type=image`)
-        .then((response) => {
-            var fethcedData = response.data.collection.items;
-            // console.log("fetched data is : " + fethcedData);
-            setData(fethcedData);
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
-
+    var fethcedData = await SearchBoxAPI(desc);   
+    setData(fethcedData);
   };
     useEffect(() => {
         fetchData();
@@ -30,11 +22,9 @@ const Search = () => {
   }
 
   const handleSearch = () => {
-    // console.log(" searchInput : " + searchInput);
     var mod = searchInput.replace(" ","%");
-    // console.log(" mod is : " + mod);
     setDesc(mod);
-    // console.log(" desc is : " + desc);
+  
   }
 
     return (

@@ -5,11 +5,12 @@ const ImageModel = ({ele}) => {
   return (
     <div className="imageContainer"   >
       <div className='imageSection'>
-        <img src={ele.hdurl} alt="Image Not Genarated" />
+        <img src={ele.hdurl} alt='Internal errors ' />
       </div>
       <div className='textSection'>
         <div className='innerTextSection'  >
           <h1>{ele.title}</h1>
+          <h3>Post Date : {ele.date}</h3>
           <p>{ele.explanation}</p>
 
         </div>
@@ -19,4 +20,4 @@ const ImageModel = ({ele}) => {
   )
 }
 
-export default ImageModel
+export default ImageModel;

@@ -41,9 +41,6 @@ const LandingPage = () => {
     // localStorage.clear();  
   }, [])
   
-
-
-
 	return (
 		<div className='landingPageContainer'>
       <div className='mainContent'  > 
