@@ -30,11 +30,13 @@ const MarsClub = () => {
     
     const handleNextPage = () => {
         setPage(page => page + 1);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     const handlePrevPage = () => {
         if(page > 1){
             setPage(page => page - 1 );
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         else{
             alert("KUTTAR BACCHA!!!!! VALO HYE JA");
@@ -46,20 +48,20 @@ const MarsClub = () => {
         <>
             <div className='containerMarsClub' >
                 <div className='photogallery'>
-                    {
-                        data && <PhotoGallery data = {data}/>
-                    }
+                    <PhotoGallery data = {data}/>
                 </div>
+
+                
 
                 <div className='button'>
                     <div >
-                        <button onClick={handlePrevPage}  > {prev} </button>
+                        <button onClick={handlePrevPage}> <p>{prev}</p></button>
                     </div>
                     <div >
-                        <button > {page} </button>
+                        <button ><p>{page}</p></button>
                     </div>
                     <div>
-                        <button onClick={handleNextPage}  >{next}</button>
+                        <button onClick={handleNextPage}  ><p>{next}</p></button>
                     </div>
                 </div>
             </div>
