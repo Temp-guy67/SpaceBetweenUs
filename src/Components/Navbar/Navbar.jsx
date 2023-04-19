@@ -15,13 +15,13 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/marsclub">MarsClub</Link>
+              <Link to="/marsclub">Mars</Link>
             </li>
             <li>
             <a href="/search">Search</a>
             </li>
             <li>
-              <a href="https://whosarghya.netlify.app">AboutMe</a>
+              <a href="https://whosarghya.netlify.app">About</a>
             </li>
           </ul>
         </div>

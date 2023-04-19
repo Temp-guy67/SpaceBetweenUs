@@ -16,7 +16,7 @@
     align-items: center;
     margin: 20px;
     padding: 10px;
-    border-radius: 2px;
+    border-radius: 0px;
     background-color: #eee;
   }
   
@@ -26,7 +26,7 @@
     margin-right: 10px;
     font-size: 16px;
     padding: 5px;
-    border-radius: 20px;
+    border-radius: 0px;
 }
   
 .search-box button[type="submit"] {
@@ -34,7 +34,7 @@
     color: #fff;
     border: none;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 0px;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -80,6 +80,7 @@
     transition: all 0.3s ease;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
@@ -91,9 +92,26 @@
   .text {
     color: white;
     font-size: 20px;
+    font-weight: 700;
     text-align: center;
     opacity: 0;
     transition: all 0.3s ease;
+  }
+
+  .text2{
+    color: rgb(255, 255, 255);
+    font-size: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .text3{
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    text-align: center;
+    transition: all 0.5s ease;
+    margin-top: 10px;
+    padding: 3px;
   }
   
   .gallery-item:hover .text {

@@ -51,7 +51,8 @@ const setDataObj= (data) => {
         hdurl : data.hdurl,
         media_type : data.media_type,
         title : data.title,
-        time : serverTimestamp()
+        time : serverTimestamp(),
+        url : data.url
     }
     return dataObj;
 }

@@ -28,8 +28,8 @@ const LandingPage = () => {
     if (today != lastDBUpdateTime)
     {
       fetchDataFromAPI();
-      localStorage.setItem("lastDBUpdateTime", today);
       getDataFromFirebase();
+      localStorage.setItem("lastDBUpdateTime", today);
     }
     else {
       const cacheData = localStorage.getItem("feedData");

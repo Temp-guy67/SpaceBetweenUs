@@ -9,7 +9,7 @@
 
 
 .imageContainer{
-    margin: 50px;
+    margin: 5%;
     display: flex;
     flex-direction: row;
     height : 60vh;
@@ -34,7 +34,22 @@
 }
 
 .innerTextSection{
-    margin: 20px;
+    margin: 10px;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.button-container button{
+    width: 100px;
+    height: 30px;
+}
+
+.button-container button a{
+    text-decoration: none;
 }
 
 .imageSection img{
@@ -48,11 +63,45 @@
     transform: scale(1.1);
   }
 
+/* Styles for mobile devices */
+@media only screen and (max-width: 768px) {
+    .landingPageContainer{
+        margin-top: 8vh;
+    }
+    .imageContainer{
+        width: 90%;
+        margin: 10% 5%;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        justify-content: center;
+    }
+    .imageSection {
+        width: 100%;
+    }
+    
+    .textSection {
+        width: 100%;
+    }
+    .innerTextSection{
+        margin: 10px;
+        align-content: center;
+    }
 
-.buttonDesign{
-    border-radius: 0px;
-    background: linear-gradient(145deg, #4a4a4a, #3e3e3e);
-    box-shadow:  21px 21px 42px #1c1c1c,
-                 -21px -21px 42px #6e6e6e;
-    size: 50px;
+    .innerTextSection h1{
+        margin: 20px 10px;
+        font-size: 20px;
+    }
+    .innerTextSection h3{
+        font-size: 12px;
+        font-weight: 400;
+        font-style: italic;
+        text-align: center;
+    }
+    .innerTextSection p{
+        font-size: 15px;
+        padding: 5px;
+        /* font-weight: 400; */
+        /* font-style: italic; */
+    }
 }
