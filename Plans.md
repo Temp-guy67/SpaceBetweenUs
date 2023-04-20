@@ -3,6 +3,8 @@ Current Features Ahead :
 1. Need a separate Folder for all the API calls - for all the 3 calls .
     a. Landing page done [Done][4.4.23]
     b. Working on mars-page [6.4.23]
+    c. Make things more responsive
+    d. 
 
 2. Need separate forlder for DB calls and store in cache
     a. DB calls is working fine. [6.4.23]

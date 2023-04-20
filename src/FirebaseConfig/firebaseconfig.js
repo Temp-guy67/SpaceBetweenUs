@@ -3,13 +3,13 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDV49Ad03nA9xNZeTGHHHuMR2OVsPTBPW8",
-  authDomain: "ets-space-6d72d.firebaseapp.com",
-  databaseURL: "https://ets-space-6d72d-default-rtdb.firebaseio.com",
-  projectId: "ets-space-6d72d",
-  storageBucket: "ets-space-6d72d.appspot.com",
-  messagingSenderId: "977808999899",
-  appId: "1:977808999899:web:a640246c0a35808e4793fe"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.FIREBASE_DB_URL,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID
 };
 
 // Initialize Firebase
