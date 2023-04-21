@@ -18,15 +18,6 @@ const LandingPage = () => {
     }
   }
 
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      fetchDataFromAPI();
-    }, 24 * 60 * 60 * 1000); // 24 hours in milliseconds
-
-    return () => clearInterval(interval);
-  }, []);
-
 
   useEffect(() => {
     const dateObj = new Date();
