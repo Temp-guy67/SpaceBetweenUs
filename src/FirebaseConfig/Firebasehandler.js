@@ -16,14 +16,13 @@ async function FirebaseHandler(opr, data){
 }
 
 async function addData(collectionRef , data) {
-
     var today = data.date;
     const newObj = setDataObj(data);
     try {
         const schoolRef = doc(collectionRef, today);
         await setDoc(schoolRef, newObj);
     } catch (error) {
-        console.error("Error in add data ",error);
+        console.error("[FirebaseHandler]Error in addData ",error);
     }
 }
 
@@ -39,7 +38,7 @@ async function readData(collectionRef) {
         return dataArray
         
     } catch (error) {
-        console.error("Error in read data ",error);
+        console.error("[FirebaseHandler] Error in readData ",error);
     }
 }
 
