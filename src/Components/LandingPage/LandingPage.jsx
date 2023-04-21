@@ -18,6 +18,15 @@ const LandingPage = () => {
     }
   }
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      fetchDataFromAPI();
+    }, 24 * 60 * 60 * 1000); 
+
+    return () => {
+      clearTimeout(timer); 
+    };
+  }, []);
 
   useEffect(() => {
     const dateObj = new Date();
