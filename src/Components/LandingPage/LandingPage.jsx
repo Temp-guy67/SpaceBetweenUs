@@ -20,8 +20,9 @@ const LandingPage = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
+      console.log(" called thr API ")
       fetchDataFromAPI();
-    }, 24 * 60 * 60 * 1000); 
+    }, 5 * 60 * 1000); 
 
     return () => {
       clearTimeout(timer); 
