@@ -56,9 +56,10 @@ const LandingPage = () => {
       <div className='mainContent'  > 
         <div >
           {
-          data.map((ele , index) => {
-            return (<ImageModel key = {index} ele = {ele} />)
-          })}
+            data.map((ele , index) => {
+              return (<ImageModel key = {index} ele = {ele} />)
+            })
+          }
         </div>
       </div>
 		</div>
